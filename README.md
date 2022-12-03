@@ -1,1 +1,3 @@
 # rock-paper-scissor
+
+/* ROCK-PAPER-SCISSOR PROJECT FROM THE ODIN'S PROJECT(TOP)*/
