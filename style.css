@@ -1,0 +1,78 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    margin: 0px;
+    background-color: black;
+}
+#welcome{
+    text-align: center;
+    margin-top: 0x;
+    padding: 10px;
+    color: rgb(242, 230, 209);
+    font-weight: 700;
+    background-color: black;
+}
+#main{
+    display: flex;
+    gap: 60px;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.box{
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    width: 600px;
+    flex-direction: column;
+    border: solid 5px rgba(121, 119, 119, 0.696);
+    background-color: rgba(88, 79, 79, 0.048);
+}
+.icons{
+    margin-top: 10px;
+    background-color: black;
+}
+#board{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+h3{
+    color: rgb(174, 155, 155);
+    font-weight: 900;
+    font-size: 32px;
+}
+img{
+    padding: 5px;
+    width: 120px;
+    height: 100px;
+    gap: 40px;
+    background-color: rgb(225, 215, 215);
+    border: solid 4px black;
+}
+.choices{
+    padding: 10px;
+}
+button{
+    background-color: rgba(25, 65, 227, 0.727);
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    margin-top: 40px;
+    font-size: 32px;
+    color: white;
+}
+footer{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    color: white;
+    padding: 10px;
+    margin-top: 70px;
+    margin-bottom: 0%;
+}
