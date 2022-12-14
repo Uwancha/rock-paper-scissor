@@ -4,10 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper-Scissors</title>
-
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <script src="mainscript.js"></script> 
+     <div id="welcome">
+        <h1>Welcome To Rock-Paper-Scissors Game</h1>
+    </div>
+
+    <div id="main">
+        <div class="box">
+            <div>
+                <img src="images/person.png" class="icons">
+            </div>
+            <div>
+                <h3>Player</h3>
+            </div>
+            <div class="choices">
+                <img class="colors" id="paper" src="images/paper.png">
+                <img class="colors"  id="rock" src="images/rock.png">
+                <img class="colors" id="scissors" src="images/scissors.png">
+            </div>
+            <di id="board">
+                <h3>Score:</h3>
+                <h3 id="player-result">0</h3>
+            </di>
+         </div>
+        <div class="box">
+            <div>
+              <img src="images/computer.png" class="icons">
+            </div>
+            <div>
+                <h3>Computer</h3>
+            </div>
+            <div class="choices">
+                <img class="selections paper" src="images/paper.png">
+                <img class="selections rock" src="images/rock.png">
+                <img class="selections scissors" src="images/scissors.png">
+
+                
+            </div>
+            <di id="board">
+                <h3>Score:</h3>
+                <h3 id="computer-result">0</3>
+            </di>
+        </div>
+    </div>
+
+    <footer>Developer: Sitota-Alemu</footer>
+    
+    <script src="mainscript.js"></script>
+
 </body>
 </html>
