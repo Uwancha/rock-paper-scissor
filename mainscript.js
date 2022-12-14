@@ -1,3 +1,4 @@
+//Add a function to get a computer's selection
 const getComputerChoice = () => {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     switch(randomNumber) {
@@ -6,125 +7,94 @@ const getComputerChoice = () => {
         case 2:
             return "paper";
         case 3:
-            return "scissor";
+            return "scissors";
     }
-}
+} 
 
-let playerSelection; 
-const computerSelection = getComputerChoice();
-let win;
-let lose;
-let player = 0;
-let computer = 0;
+//Declare variables for functions
+let playerSelection;       
+let choices =  document.querySelectorAll("img");
+let mainContent = document.querySelector("#main");
+let result = document.querySelector('#player-result');
+let comRes = document.querySelector('#computer-result');
+let again = document.querySelector(".play-again");
+let icon = document.createElement("img");
+let message = document.createElement("div");
+let header = document.querySelector("#welcome");
+let footer = document.querySelector("footer");
+let button = document.createElement("button");
+   
+   button.textContent = "Play Again";
+   icon.src = "images/person.png";
 
+//Add event listeners
+choices.forEach(choice => choice.addEventListener("click", score));
+choices.forEach(choice => choice.addEventListener("click", declareWinner));
+button.addEventListener("click", playAgain);
 
-
+//Add function to dictate a one round winner
 function playRound(playerSelection, computerSelection) {
-     
+    
+    if (playerSelection === "rock" && computerSelection === "scissors") {
+        return  "You won!";
+    }else if (playerSelection === "rock" && computerSelection === "paper")  {
+        return "You Lost";
+    }else if (playerSelection === "paper" && computerSelection === "rock") {
+        return  "You won!"; 
+    }else if (playerSelection === "paper" && computerSelection === "scissors") {
+        return "You Lost";
+    }else if (playerSelection === "scissors" && computerSelection === "paper") {
+        return "You won!" 
+    }else if (playerSelection === "scissors" && computerSelection === "rock"){
+        return "You Lost" 
+    }}
 
-    switch (true) {
-        case playerSelection.toLowerCase() === "rock" && computerSelection === "scissor":
-            win = console.log("You win! Rock beats scissor");
-            player = player + 1
-            break;
-        case playerSelection.toLowerCase() === "rock" && computerSelection === "paper":
-           lose = console.log("You lose! paper beats rock");
-           computer = computer + 1
-            break;
-        case playerSelection.toLowerCase() === "paper" && computerSelection === "rock":
-           win = console.log("You win! paper beats rock");
-           player = player + 1
-            break;
-        case playerSelection.toLowerCase() === "paper" && computerSelection === "scissor":
-            lose = console.log("You lose! scissor beats paper");
-            computer = computer + 1
-            break;
-        case playerSelection.toLowerCase() === "scissor" && computerSelection === "paper":
-            win = console.log("You win! scissor beats paper");
-            player = player + 1
-            break;
-        case playerSelection.toLowerCase() === "scissor" && computerSelection === "rock":
-            lose = console.log("You lose! rock beats scissor");
-            computer = computer + 1
-            break;
-        case playerSelection.toLowerCase() === computerSelection:
-            const tie = console.log("It is a tie. Please try again");
-            break;
-    }
-                        
+//Add function to store each scores 
+function score(Event) {
+    let player = 0;
+    let computer = 0;
+    const computerSelection = getComputerChoice();
+    const winer = String(playRound(Event.target.id, computerSelection));
+
+    if  (true) {
+        switch (true) {
+            case winer === "You won!":
+               return result.textContent = Number(result.textContent) +  Number(`${player = player + 1 }`)
+            case winer === "You Lost":
+               return comRes.textContent = Number(comRes.textContent) +  Number(`${computer = computer + 1}`)
+        }
+}
+     Event.stopPropagation(); 
+}  
+
+//Add a function to announce a winner
+function declareWinner() {
+       if (result.textContent == 5) {
+        header.textContent = ""
+        mainContent.textContent = ""
+        footer.textContent = ""
+        footer.style.backgroundColor = ""
+        message.textContent = "Congratulations! You Won!"
+        message.style.color = "white";
+        main.appendChild(icon)
+        main.appendChild(message)
+        main.appendChild(button)
+        main.style.cssText = "display: flex; flex-direction: column; gap: 25px; margin-top: 100px"
+        }
+       else if (comRes.textContent == 5) {
+        header.textContent = ""
+        mainContent.textContent = ""
+        footer.textContent = ""
+        message.textContent = "Poor! You Lost!"
+        message.style.color = "red";
+        main.appendChild(icon)
+        main.appendChild(message)
+        main.appendChild(button)
+        main.style.cssText = "display: flex; flex-direction: column; gap: 25px; margin-top: 100px"
+       }
 }
 
-function game(){
-    for (let i = 0; i < 5; i++) {
-        
-        if (i === 0) {
-            playerSelection = prompt("Enter your selecton: ");
-            console.log(`You: ${playerSelection.toLowerCase()} computer: ${computerSelection}`);
-
-            playRound(playerSelection, computerSelection);
-            
-            
-            
-            console.log(`Round: 1 => You ${player} , computer ${computer}`); 
-        }
-            
-        else if (i === 1) {
-            playerSelection = prompt("Enter your selecton: ");
-            console.log(`You: ${playerSelection.toLowerCase()} computer: ${computerSelection}`);
-
-            playRound(playerSelection, computerSelection);
-            
-                 console.log(`Round: 2 => You ${player} , computer ${computer}`); 
-            }
-            
-            
-            
-        else if (i === 2) {
-            playerSelection = prompt("Enter your selecton: ");
-            console.log(`You: ${playerSelection.toLowerCase()} computer: ${computerSelection}`);
-
-            playRound(playerSelection, computerSelection);
-            
-            
-            console.log(`Round: 3 => You ${player} , computer ${computer}`);
-        } 
-           
-        else if (i === 3) {
-            playerSelection = prompt("Enter your selecton: ");
-            console.log(`You: ${playerSelection.toLowerCase()} computer: ${computerSelection}`);
-
-            playRound(playerSelection, computerSelection);
-            
-            
-            
-            console.log(`Round: 4 => You ${player} , computer ${computer}`);
-        } 
-          
-        else if (i === 4) {
-            playerSelection = prompt("Enter your selecton: ");
-            console.log(`You: ${playerSelection.toLowerCase()} computer: ${computerSelection}`);
-
-            playRound(playerSelection, computerSelection);
-            
-            
-            console.log(`Round: 5 => You ${player} , computer ${computer}`); 
-            if (player > computer) {
-                console.log("Congratulations! You win!");
-            }
-            else if (computer > player) {
-                console.log("Poor! You lose!");
-            }
-            else if (player === computer) {
-                console.log("It is a tie. Play again!")
-            }
-           
-
-        }
-    }
-    
-    
-       
+//Add a function to play again the game
+function playAgain() {
+    window.location.reload()
 }
-(game());
-
-
